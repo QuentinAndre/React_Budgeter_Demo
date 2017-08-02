@@ -1,0 +1,6 @@
+{
+    "name": "Budgeter-App",
+    "description": "A budgeting simulation for behavioral research purposes.",
+    "repository": "https://github.com/QuentinAndre/Flask-Budgeter",
+    "keywords": ["python", "webapp"]
+}

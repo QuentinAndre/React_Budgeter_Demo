@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Budgeter Game</title>
+
+</head>
+<body>
+<div id="mountNode"></div>
+</body>
+<footer>
+    <script>
+        var participantId = "{{participantId}}";
+        var fundName = "{{fundName}}";
+        localStorage.setItem('conditionInformation', JSON.stringify({
+        fundName: fundName,
+        participantId: participantId
+    }))</script>
+    <script src={{ url_for(
+    'static', filename='build/bundle.min.js') }}></script>
+</footer>
+</html>
