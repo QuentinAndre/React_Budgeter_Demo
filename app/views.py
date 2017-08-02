@@ -7,37 +7,32 @@ import sys
 from flask_cors import cross_origin
 from .data import prepare_data
 import time
+import uuid
 
 @app.route('/start', methods=["GET"])
 @app.route('/', methods=["GET"])
 def home():
-    print("Loading page", file=sys.stderr)
-    if current_user.is_authenticated:
-        pass
-
     turkid = request.args.get("turkid")
     if turkid is None:
-        return redirect(url_for('game'))
-
-    user = Response.query.filter_by(turkid=turkid).first()
-
-    if user:
-        login_user(user, remember=True)
-    else:
-        condid = request.args.get("condid")
-        if condid == "0":
-            fundtype = "Food Card"
-        elif condid == "1":
-            fundtype = "Special Card"
+        user = Response.query.filter_by(turkid=turkid).first()
+        if user:
+            login_user(user, remember=True)
+            return redirect(url_for('game'))
         else:
-            fundtype = "Debit Card"
-        endurl = "http://insead.eu.qualtrics.com/SE/?SID=SV_bdAsd6wYy9LP0rP&turkid={}&condid={}".format(turkid,
-                                                                                                        condid)
-        user = Response(turkid, fundtype, endurl)
-        login_user(user, remember=True)
-        db.session.add(user)
-        db.session.commit()
-    return redirect(url_for('game'))
+            turkid = uuid.uuid4()
+            condid = request.args.get("condid")
+            if condid == "0":
+                fundtype = "Food Card"
+            elif condid == "1":
+                fundtype = "Special Card"
+            else:
+                fundtype = "Debit Card"
+            endurl = "http://react-budgeter-demo.herokuapp.com/logout"
+            user = Response(turkid, fundtype, endurl)
+            login_user(user, remember=True)
+            db.session.add(user)
+            db.session.commit()
+            return redirect(url_for('game'))
 
 
 @app.route('/game', methods=["GET"])
