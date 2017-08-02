@@ -5,7 +5,7 @@ import sys
 
 class Response(db.Model):
     __tablename__ = "responses"
-    turkid = db.Column('turkid', db.String(20), unique=True, index=True, primary_key=True)
+    turkid = db.Column('turkid', db.String(50), unique=True, index=True, primary_key=True)
     fundtype = db.Column('fundtype', db.String(20))
     endurl = db.Column('endurl', db.String(100))
     startdate = db.Column('startdate', db.DateTime)
