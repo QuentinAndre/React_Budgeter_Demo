@@ -12,7 +12,7 @@ import uuid
 @app.route('/start', methods=["GET"])
 @app.route('/', methods=["GET"])
 def home():
-    turkid = uuid.uuid4()
+    turkid = uuid.uuid4().replace("-", "")
     condid = request.args.get("condid")
     if condid == "0":
         fundtype = "Food Card"
