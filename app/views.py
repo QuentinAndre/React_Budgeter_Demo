@@ -12,27 +12,20 @@ import uuid
 @app.route('/start', methods=["GET"])
 @app.route('/', methods=["GET"])
 def home():
-    turkid = request.args.get("turkid")
-    if turkid is None:
-        user = Response.query.filter_by(turkid=turkid).first()
-        if user:
-            login_user(user, remember=True)
-            return redirect(url_for('game'))
-        else:
-            turkid = uuid.uuid4()
-            condid = request.args.get("condid")
-            if condid == "0":
-                fundtype = "Food Card"
-            elif condid == "1":
-                fundtype = "Special Card"
-            else:
-                fundtype = "Debit Card"
-            endurl = "http://react-budgeter-demo.herokuapp.com/logout"
-            user = Response(turkid, fundtype, endurl)
-            login_user(user, remember=True)
-            db.session.add(user)
-            db.session.commit()
-            return redirect(url_for('game'))
+    turkid = uuid.uuid4()
+    condid = request.args.get("condid")
+    if condid == "0":
+        fundtype = "Food Card"
+    elif condid == "1":
+        fundtype = "Special Card"
+    else:
+        fundtype = "Debit Card"
+    endurl = "http://react-budgeter-demo.herokuapp.com/logout"
+    user = Response(turkid, fundtype, endurl)
+    login_user(user, remember=True)
+    db.session.add(user)
+    db.session.commit()
+    return redirect(url_for('game'))
 
 
 @app.route('/game', methods=["GET"])
