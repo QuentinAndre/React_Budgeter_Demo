@@ -222,8 +222,7 @@ def prepare_data(weekNumber, participantId, fundName, fundBalance, cardBalance):
         data = {
             'app': {
                 'gameEnded': True,
-                'surveyLink': 'http://insead.eu.qualtrics.com/jfe/form/SV_5sVre0WzjjNyEkZ?turkid={}&fundname={}'.format(
-                    participantId, fundName)
+                'surveyLink': 'http://google.com'
             }
         }
     return data
