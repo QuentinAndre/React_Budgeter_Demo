@@ -1,0 +1,30 @@
+.vertical-align {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.vertical-align > [class^="col-"],
+.vertical-align > [class*=" col-"] {
+    display: flex;
+    align-items: center;     /* Align the flex-items vertically */
+    justify-content: center; /* Optional, to align inner flex-items
+                              horizontally within the column  */
+}
+
+.menu-spinner {
+    width: 75px;
+    margin-right: 10px;
+}
+
+.menu-line {
+    margin-bottom: 5px;
+}
+
+.menu-tooltip {
+    margin-left: 3px;
+}
+
+.menu-description {
+    margin-bottom: 20px;
+}

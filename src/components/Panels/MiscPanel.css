@@ -1,0 +1,23 @@
+.misc-text {
+    margin-bottom: 15px;
+    text-align: justify
+}
+
+.misc-selector {
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.misc-total {
+    font-weight: 200;
+    margin-bottom: 20px
+}
+
+.button-disabled-wrapper {
+    display: inline-block;
+    cursor: not-allowed
+}

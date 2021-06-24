@@ -1,0 +1,28 @@
+.app-header {
+    padding: 0;
+}
+
+.week-header {
+    font-size: 16px;
+    text-align: left;
+    padding: 5px;
+}
+
+.greeting-header {
+    font-size: 16px;
+    text-align: right;
+    padding: 5px;
+}
+
+.loader-span {
+    display: block;
+    width: 200px;
+    margin: auto
+}
+
+.loader-text-span {
+    display: block;
+    font-size: 300%;
+    text-align: center;
+    margin-bottom: 50px;
+}
